@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEYN Gümüş & Saat </title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf8;
+            color: #0e0c03;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 253, 248, 0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e6dfd4;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            font-weight: 300;
+            font-size: 18px;
+            color: #cbaa7b;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .logo p {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #6c655b;
+            margin-top: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #110901;
+            transition: 0.2s;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #b48c48;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #ece6dc 0%, #dfd6c8 100%);
+            padding: 80px 0 100px;
+        }
+
+        .hero .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .badge {
+            color: #8f7a5c;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .hero-text h2 {
+            font-size: 56px;
+            font-weight: 500;
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .hero-text h2 i {
+            color: #cbaa7b;
+            font-style: normal;
+        }
+
+        .hero-text p {
+            margin: 28px 0 36px;
+            font-size: 18px;
+            color: #4c463f;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background: #000000;
+            border: none;
+            padding: 14px 38px;
+            color: white;
+            font-weight: 500;
+            border-radius: 0;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.25s;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary:hover {
+            background: #5f5343;
+            transform: translateY(-2px);
+        }
+
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 85%;
+            border-radius: 48px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Gümüş Dünyası - PROFESYONEL */
+        .categories {
+            padding: 90px 0;
+            background: #fffcf7;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 1px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #7f776c;
+            margin-bottom: 60px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+
+        .cat-card {
+            background: white;
+            padding: 30px 24px 36px;
+            text-align: center;
+            border-radius: 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            transition: all 0.35s ease;
+            border: 1px solid #f0eae2;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            border-color: #b9b4aa;
+            box-shadow: 0 28px 40px -18px rgba(0,0,0,0.15);
+        }
+
+        .category-img {
+            width: 100%;
+            max-width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .cat-card:hover .category-img {
+            transform: scale(1.02);
+        }
+
+        .cat-card h3 {
+            font-size: 24px;
+            margin: 16px 0 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .cat-card p {
+            color: #6c655b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .shop-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #a08c74;
+            letter-spacing: 1px;
+        }
+
+        /* Mağaza */
+        .store-location {
+            padding: 90px 0;
+            background: white;
+        }
+
+        .location-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .map-box {
+            flex: 1;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 24px 38px -12px rgba(0,0,0,0.1);
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 380px;
+            border: 0;
+        }
+
+        .info-box {
+            flex: 1;
+        }
+
+        .info-box h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        .info-box .since {
+            color: #cbaa7b;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .contact-detail {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 15px;
+        }
+
+        .contact-detail strong {
+            font-weight: 600;
+            width: 70px;
+        }
+
+        /* İletişim */
+        .contact-section {
+            background: #f5efe8;
+            padding: 80px 0;
+        }
+
+        .form-card {
+            max-width: 620px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+        }
+
+        .form-card h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .form-card p {
+            text-align: center;
+            margin-bottom: 32px;
+            color: #7f776c;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e1d7ce;
+            border-radius: 0;
+            margin-bottom: 20px;
+            font-family: inherit;
+            background: #fffcf8;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: #000000;
+        }
+
+        footer {
+            background: #201e1b;
+            color: #d9cfc2;
+            text-align: center;
+            padding: 40px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 800px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-text h2 {
+                font-size: 38px;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .section-title {
+                font-size: 32px;
+            }
+        }
+        /* YUKARI ÇIK BUTONU */
+.go-top {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #2d2a27;
+    color: white;
+    border-radius: 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 28px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.go-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.go-top:hover {
+    background: #cbaa7b;
+    transform: translateY(-3px);
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="logo.png" alt="ZEYN Logo" style="height: 80px; width: auto;">
+            <h1 style="display: none;">ZEYN <span>Saat & Gümüş</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Ana Sayfa</a></li>
+                <li><a href="#kategoriler">Koleksiyon</a></li>
+                <li><a href="#magaza">Mağaza</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-text">
+            <div class="badge">ZAMANIN GÜMÜŞÜ</div>
+            <h2>ZEYN'de <i>Şıklık</i><br>Birleşir Gümüş & Saatle </h2>
+            <p> Bileklik, kolye, küpe ve marka saatler. Hem el işçiliği gümüş aksesuarlar hem de her tarza uygun marka saatler. 2023 yılından beri Gebze'de tek şubemizle hizmetinizdeyiz.</p>
+            <a href="#kategoriler" class="btn-primary">KOLEKSİYONU KEŞFET</a>
+        </div>
+        <div class="hero-img">
+            <img src="zeyndukkan.png" alt="ZEYN Saat & Gümüş" style="width: 100%; max-width: 500px; border-radius: 24px; box-shadow: 0 20px 35px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+</section>
+<!-- GÜMÜŞ DÜNYASI - TIKLANABİLİR ÜRÜN SAYFALARI -->
+<section class="categories" id="kategoriler">
+    <div class="container">
+        <h2 class="section-title">Gümüş Dünyası</h2>
+        <div class="section-desc">925 Ayar gümüş & özel tasarım saatler</div>
+        <div class="cat-grid">
+            
+            <a href="bileklikler.html" class="cat-card">
+                <img src="bileklik-foto.jpg" alt="Gümüş Bileklik" class="category-img">
+                <h3>Gümüş Bileklik</h3>
+                <p>El işçiliği 925 gümüş, doğal taş detaylı, şık ve kullanışlı bileklik tasarımları.</p>
+            </a>
+            
+            <a href="kolyeler.html" class="cat-card">
+                <img src="kolye-foto.jpg" alt="Gümüş Kolye" class="category-img">
+                <h3>Gümüş Kolye</h3>
+                <p>925 ayar gümüş malzeme ile üretilmiş, ince işçilikli pandantifler ve şık kolye tasarımları.</p>
+            </a>
+            
+            <a href="kupeler.html" class="cat-card">
+                <img src="kupe-foto.jpg" alt="Gümüş Küpe" class="category-img">
+                <h3>Gümüş Küpe</h3>
+                <p>925 ayar gümüş malzeme ile üretilmiş, halka, damla ve taş aksanlı küpe tasarımları.</p>
+            </a>
+            
+            <a href="saatler.html" class="cat-card">
+                <img src="saat-foto.jpg" alt="Marka Saatler" class="category-img">
+                <h3>Marka Saatler</h3>
+                <p>Günlük hayatta rahatlıkla kullanabileceğiniz, modern tasarımlı marka saatler.</p>
+            </a>
+            
+        </div>
+        <div class="shop-note">Her kategoriye tıklayarak ürünleri inceleyebilirsiniz.</div>
+    </div>
+</section>
+
+<!-- GEBZE MAĞAZA -->
+<section class="store-location" id="magaza">
+    <div class="container location-flex">
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.1784100908717!2d29.40443927550192!3d40.78009173344516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadf7ebb925473%3A0xa2d78c288bafceb0!2zWmV5biBTYWF0ICYgR8O8bcO8xZ8!5e0!3m2!1str!2str!4v1778504767618!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="info-box">
+            <div class="since">2023'ten beri Gebze'de</div>
+            <h3>ZEYN Saat & Gümüş </h3>
+            <p>Hükümet Caddesi, No:24, Gebze Merkez / Kocaeli<br>Tek şubemizle hizmetinizdeyiz.</p>
+            <div class="contact-detail"><strong>WhatsApp</strong> 0 (531) 946 85 21</div>
+            <div class="contact-detail"><strong>E-Mail</strong>zeyngumus@gmail.com</div>
+            <div class="contact-detail"><strong>Çalışma</strong> Hafta içi 10:00 - 21:00 | Cumartesi 10:00 - 21:00</div>
+            <a href="#iletisim" class="btn-primary" style="margin-top: 28px; display: inline-block;">İLETİŞİM</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="iletisim">
+    <div class="container">
+        <div class="form-card">
+            <h3>Size özel tasarımlar için</h3>
+            <p>Sipariş veya danışma için bize ulaşın.</p>
+            <form action="#" method="post">
+                <input type="text" placeholder="Adınız Soyadınız" required>
+                <input type="email" placeholder="E-posta adresiniz" required>
+                <input type="tel" placeholder="Telefon numaranız">
+                <textarea rows="4" placeholder="Hangi ürünle ilgileniyorsunuz? (Saat, Bileklik, Kolye, Küpe)"></textarea>
+                <button type="submit">GÖNDER</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ZEYN Saat & Gümüş | Gebze'nin lüks takı ve saat adresi</p>
+    <p style="margin-top: 12px; font-size: 12px;"> </p>
+</footer>
+<!-- YUKARI ÇIK BUTONU -->
+<a href="#" class="go-top" id="goTop">↑</a>
+
+<script>
+    // Yukarı çık butonu
+    const goTopBtn = document.getElementById('goTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            goTopBtn.classList.add('show');
+        } else {
+            goTopBtn.classList.remove('show');
+        }
+    });
+    
+    goTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>
